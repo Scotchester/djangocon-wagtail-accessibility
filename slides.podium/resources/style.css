@@ -1,0 +1,390 @@
+/********************/
+/* Font definitions */
+/********************/
+
+@font-face {
+    font-family: 'Droid Serif';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/resources/themes/default/DroidSerif.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/resources/themes/default/YanoneKaffeesatz-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/resources/themes/default/UbuntuMono-Regular.woff) format('woff');
+}
+
+/*********************************/
+/* Basic slide layout and colors */
+/*********************************/
+
+.remark-slide-content {
+    padding: 1em 6em 1em 6em;
+    background-color: #f6f7f1;
+    background-size: contain;
+    font-family: 'Droid Serif';
+    color: #272726;
+}
+
+/*************************/
+/* Common content markup */
+/*************************/
+
+h1,
+h2,
+h3 {
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: normal;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48pt;
+}
+
+h2 {
+    font-size: 36pt;
+}
+
+h3 {
+    font-size: 28pt;
+}
+
+p {
+    font-size: 24pt;
+    line-height: 1.4em;
+}
+
+li {
+    font-size: 24pt;
+    line-height: 1.4em;
+    margin: 0.4em 0;
+}
+
+li p {
+    margin: 0.4em 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+.hljs-default code {
+    font-size: 24pt;
+    font-family: "Ubuntu Mono";
+}
+
+.hljs-default pre {
+    margin: 0.4em 0;
+}
+
+.hljs-default pre code {
+    background-color: #f8fbfe;
+    border: 1px solid #272726;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 75%;
+    margin: 0 auto;
+}
+
+blockquote p:before {
+    color: #7f7f7c;
+    content: "“";
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.15em;
+    vertical-align: -0.35em;
+}
+
+blockquote p:after {
+    color: #7f7f7c;
+    content: "”";
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.15em;
+    vertical-align: -0.55em;
+}
+
+cite {
+    color: #7f7f7c;
+    display: block;
+    text-align: right;
+    margin-top: 1em;
+}
+
+/* Quotes in a list don't need as much padding */
+li cite {
+    margin-top: 0;
+}
+
+
+/***********/
+/* Twitter */
+/***********/
+
+.twitter blockquote p {
+    font-family: "Helvetica Neue", Helvetica;
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 1em;
+    padding: 0.5em 2em 0 2em;
+}
+
+.twitter blockquote p:before {
+    content: "";
+    margin: 0.5em 0;
+    /*padding: 0;2e*/
+}
+
+.twitter blockquote p:after {
+    content: "";
+    margin: 0.5em 0;
+}
+
+.twitter blockquote cite {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin: 0;
+}
+
+.twitter blockquote cite span {
+    color: #7f7f7c;
+    font-size: smaller;
+    font-weight: normal;
+    display: block;
+    padding: 0.2em 0;
+}
+
+.twitter blockquote cite img {
+    float: left;
+    border-radius: 50%;
+    margin: 0 1em 0 0;
+    width: 3em;
+    height: 3em;
+}
+
+
+/*********************************/
+/* Special content for footnotes */
+/*********************************/
+
+.footnotes {
+    font-size: 18pt;
+    position: absolute;
+    bottom: 2em;
+    right: 4em;
+    width: 80%;
+    text-align: right;
+}
+
+.footnotes p {
+    font-size: 18pt;
+    margin: 0.2em 0;
+}
+
+.dag1:before {
+    content: "†";
+}
+
+.dag2:before {
+    content: "‡";
+}
+
+.dag3:before {
+    content: "✣";
+}
+
+.dag4:before {
+    content: "❉";
+}
+
+/*********************/
+/* Two column layout */
+/*********************/
+.left-column {
+    width: 47%;
+    float: left;
+}
+
+.right-column {
+    width: 47%;
+    float: right;
+}
+
+/****************/
+/* Title slides */
+/****************/
+
+.remark-slide-content.title {
+    vertical-align: middle;
+}
+
+.title h1 {
+    margin: 0.2em;
+}
+
+.title h2 {
+    font-size: 24pt;
+    margin: 0.2em;
+    font-weight: normal;
+}
+
+.title h3 {
+    margin: 0.2em;
+    font-weight: normal;
+}
+
+/******************/
+/* Reverse slides */
+/******************/
+
+.remark-slide-content.reverse {
+    background-color: #272726;
+    color: #f6f7f1;
+}
+
+/***************/
+/* Logo slides */
+/***************/
+
+.remark-slide-content.logo img {
+    margin-top: 15%;
+}
+
+/*********************/
+/* Fullscreen slides */
+/*********************/
+
+
+.remark-slide-content.fullscreen {
+    padding: 0;
+}
+
+.remark-slide-content.fullscreen img {
+    margin-top: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.aspect-16-9 .remark-slide-content.fullscreen img {
+    margin-top: 0;
+}
+
+.aspect-16-9 .remark-slide-content.fullscreen p {
+    margin: 0;
+}
+
+/*********************/
+/* Screenshot slides */
+/*********************/
+
+.remark-slide-content.screenshot img {}
+
+.aspect-16-9 .remark-slide-content.screenshot.untitled img {
+    max-width: 100%;
+    max-height: 18em;
+}
+
+.aspect-16-9 .remark-slide-content.screenshot img {
+    max-width: 70%;
+    max-height: 15em;
+}
+
+/*****************/
+/* Django slides */
+/*****************/
+
+.remark-slide-content.django {
+    background-color: #093B2A;
+}
+
+/***************************/
+/* Other background colors */
+/***************************/
+
+.remark-slide-content.black {
+    background-color: black;
+}
+
+.remark-slide-content.gray {
+    background-color: gray;
+}
+
+/*******************/
+/* Slide numbering */
+/*******************/
+
+ol>li::before {
+    content: counter(list-item) ". ";
+    width: 0.8em;
+    display: inline-block;
+}
+
+ol>li {
+    text-indent: -0.8em;
+}
+
+ol {
+    list-style-type: none;
+}
+
+.right-column ol {
+    counter-reset: list-item 6;
+}
+
+/****************/
+/* Bigger emoji */
+/****************/
+
+.emoji {
+    font-size: 144pt;
+}
+
+/**********/
+/* Tables */
+/**********/
+
+table {
+    /* width: 80%; */
+    margin: 0 auto;
+}
+
+table th {
+    font-family: 'Yanone Kaffeesatz';
+    font-size: 36pt;
+    border-bottom: 1px solid black;
+    padding: 0 1em;
+    line-height: 200%;
+}
+
+table td {
+    font-size: 24pt;
+    line-height: 200%;
+}
+
+/****************/
+/* Print styles */
+/****************/
+
+@media print {
+    .remark-slide-scaler {
+        position: static;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,415 @@
+/* You can put style overrides in this file... */
+
+@font-face {
+	font-family: 'Kumbh Sans';
+	src: url('KumbhSans[YOPQ,wght].ttf') format('truetype') tech('variations'),
+	     url('KumbhSans[YOPQ,wght].ttf') format('truetype-variations');
+	font-weight: 100 900;
+	/* font-stretch: 25% 151%; */
+}
+
+/*******************************
+ * Basic slide layout and colors
+ ******************************/
+
+.remark-slide-content {
+    padding: 1em 6em 1em 6em;
+    background-color: #f6f7f1;
+    background-size: contain;
+    font-family: 'Kumbh Sans', system-ui, sans-serif;
+    color: #272726;
+}
+
+/***********************
+ * Common content markup
+ ***********************/
+
+h1, h2, h3 {
+    font-family: 'Kumbh Sans', system-ui, sans-serif;
+    font-variation-settings: 'YOPQ' 160;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48pt;
+}
+
+h2 {
+    font-size: 36pt;
+}
+
+h3 {
+    font-size: 28pt;
+}
+
+p, ul, ol {
+    font-size: 24pt;
+    line-height: 1.5em;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+li p {
+    margin: 0.5em 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+.hljs-default code {
+    font-size: 24pt;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    color: #007d7e;  /* Wagtail Teal */
+}
+
+.hljs-default pre {
+    margin: 0.4em 0;
+}
+.hljs-default pre code {
+    background-color: #f8fbfe;
+    border: 1px solid #272726;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 75%;
+    margin: 0 auto;
+}
+
+blockquote p:before {
+    color: #7f7f7c;
+    content: '“';
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.15em;
+    vertical-align: -0.35em;
+}
+
+blockquote p:after {
+    color: #7f7f7c;
+    content: '”';
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.15em;
+    vertical-align: -0.55em;
+}
+
+cite {
+    color: #7f7f7c;
+    display: block;
+    text-align: right;
+    margin-top: 1em;
+}
+
+/* Quotes in a list don't need as much padding */
+li cite {
+    margin-top: 0;
+}
+
+a {
+    font-weight: 500;
+}
+a:link,
+a:visited {
+    color: #007d7e;
+}
+
+a:hover,
+a:focus {
+    color: #2e1f5e;
+}
+
+
+/*********************************/
+/* Special content for footnotes */
+/*********************************/
+
+.footnotes {
+    position: absolute;
+    bottom: 3rem;
+    right: 4rem;
+    width: 88%;
+    text-align: right;
+}
+
+.footnotes ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footnotes li {
+    font-size: 14pt;
+    margin: 0.2em 0;
+}
+
+.dag1,
+.dag2,
+.dag3,
+.dag4 {
+    position: relative;
+    top: -0.25em;
+    left: 0.125em;
+    color: #007d7e;  /* Wagtail Teal */
+}
+.dag1:before {
+    content: '1';
+}
+
+.dag2:before {
+    content: '2';
+}
+
+.dag3:before {
+    content: '3';
+}
+
+.dag4:before {
+    content: '4';
+}
+
+.footnotes .dag1,
+.footnotes .dag2,
+.footnotes .dag3,
+.footnotes .dag4 {
+    position: static;
+    margin-right: 0.25em;
+    color: #2e1f53;
+}
+
+/*********************/
+/* Two column layout */
+/*********************/
+
+.left-column {
+    width: 40%;
+    float: left;
+}
+
+.right-column {
+    width: 54%;
+    float: right;
+    position: relative;
+}
+
+/****************/
+/* Title slides */
+/****************/
+
+.remark-slide-content.title {
+    vertical-align: middle;
+}
+
+.title h1 {
+    margin: 0.2em;
+}
+
+.title h2 {
+    font-size: 24pt;
+    margin: 0.2em;
+}
+
+.title h3 {
+    margin: 0.2em;
+}
+
+/******************/
+/* Reverse slides */
+/******************/
+
+.remark-slide-content.reverse {
+    background-color: #272726;
+    color: #f6f7f1;
+}
+
+/***************/
+/* Logo slides */
+/***************/
+
+.remark-slide-content.logo img {
+  margin-top: 15%;
+}
+
+/*********************/
+/* Fullscreen slides */
+/*********************/
+
+
+.remark-slide-content.fullscreen {
+  padding: 0;
+}
+
+.remark-slide-content.fullscreen img {
+    margin-top: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.aspect-16-9 .remark-slide-content.fullscreen img {
+    margin-top: 0;
+}
+
+.aspect-16-9 .remark-slide-content.fullscreen p {
+    margin: 0;
+}
+
+/*********************/
+/* Screenshot slides */
+/*********************/
+
+.remark-slide-content.screenshot img {
+}
+
+.aspect-16-9 .remark-slide-content.screenshot.untitled img {
+    max-width: 100%;
+    max-height: 18em;
+}
+
+.aspect-16-9 .remark-slide-content.screenshot img {
+    /* max-width: 70%;
+    max-height: 15em; */
+    max-width: 100%;
+    max-height: none;
+}
+
+/*****************/
+/* Django slides */
+/*****************/
+
+.remark-slide-content.django {
+    background-color: #093b2a;
+}
+
+/******************/
+/* Wagtail slides */
+/******************/
+
+.remark-slide-content.wagtail {
+    background-color: #2e1f53;
+    color: white;
+}
+
+.remark-slide-content.wagtail a:link,
+.remark-slide-content.wagtail a:visited {
+    color: #80d7d8; /* Light teal */
+}
+
+.remark-slide-content.wagtail a:hover,
+.remark-slide-content.wagtail a:focus {
+    color: #fff;
+}
+
+.remark-slide-content.wagtail code {
+    color: inherit;
+}
+
+/***************************
+ * Other background colors *
+ ***************************/
+
+.remark-slide-content.black {
+    background-color: black;
+}
+
+.remark-slide-content.gray {
+    background-color: gray;
+}
+
+/*************************
+ * Bullets and numbering *
+ *************************/
+
+
+ul, ol {
+    padding-left: 1.5em;
+}
+
+ol {
+    /* list-style-type: none; */
+    list-style: decimal;
+}
+
+ol > li::before {
+    /* content: counter(list-item) '. '; */
+    content: none;
+    /* width: 0.8em; */
+    width: auto;
+    /* display: inline-block; */
+    display: none;
+}
+
+ol > li {
+    /* text-indent: -0.8em; */
+    text-indent: 0;
+}
+
+.right-column ol {
+    counter-reset: list-item 6;
+}
+
+/****************
+ * Bigger emoji *
+ ****************/
+
+.emoji {
+  font-size: 144pt;
+}
+
+/**********
+ * Tables *
+ **********/
+
+table {
+    /* width: 80%; */
+    margin: 0 auto;
+}
+
+table th {
+    font-size: 36pt;
+    border-bottom: 1px solid black;
+    padding: 0 1em;
+    line-height: 200%;
+}
+
+table td {
+    font-size: 24pt;
+    line-height: 200%;
+}
+
+
+/*************
+ * Watermark *
+ ************/
+
+.remark-slides-area .remark-slide-content::after {
+    content: 'Made with Podium';
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 12pt;
+    opacity: 0.5;
+}
+
+
+/*********
+ * Notes *
+ *********/
+
+.remark-notes-area {
+    overflow: scroll;
+}
+
+.remark-notes-area .remark-notes {
+    font-family: system-ui, sans-serif;
+}
+
+.remark-notes-area .remark-notes code {
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    color: #007d7e;  /* Wagtail Teal */
+}
