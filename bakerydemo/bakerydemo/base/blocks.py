@@ -1,8 +1,11 @@
+from django.core.exceptions import ValidationError
+
 from wagtail.blocks import (
     CharBlock,
     ChoiceBlock,
     RichTextBlock,
     StreamBlock,
+    StreamBlockValidationError,
     StructBlock,
     TextBlock,
 )
@@ -77,3 +80,37 @@ class BaseStreamBlock(StreamBlock):
         icon="media",
         template="blocks/embed_block.html",
     )
+
+    def clean(self, value):
+        result = super().clean(value)
+
+        headings = [
+            # tuples of block index and heading level
+            (0, 1)  # mock H1 block at index 0
+        ]
+        errors = {}
+
+        # first iterate through all blocks in the StreamBlock
+        for i in range(1, len(result)):  # result indexes begin at 1
+            # if a block is of type "heading_block?
+            if result[i].block_type == "heading_block":
+                # convert size string to integer
+                level = int(result[i].value.get("size")[-1:])
+                # append tuple of block index and heading level to list
+                headings.append((i, level))
+
+        # now iterate through list of headings,
+        # starting with second heading to skip over the mock H1 heading block
+        for i in range(1, len(headings)):
+            # compare its level to the previous heading's level
+            if int(headings[i][1]) - int(headings[i-1][1]) > 1:
+                # if the difference is more than 1,
+                # add an error to the array with its original index
+                errors[headings[i][0]] = ValidationError(
+                    "Incorrect heading hierarchy. Avoid skipping levels."
+                )
+
+        if errors:
+            raise StreamBlockValidationError(block_errors=errors)
+
+        return result
