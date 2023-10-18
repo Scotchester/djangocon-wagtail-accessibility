@@ -22,6 +22,7 @@ class ImageBlock(StructBlock):
     image = ImageChooserBlock(required=True)
     caption = CharBlock(required=False)
     attribution = CharBlock(required=False)
+    alt_text = CharBlock(required=False)
 
     class Meta:
         icon = "image"
