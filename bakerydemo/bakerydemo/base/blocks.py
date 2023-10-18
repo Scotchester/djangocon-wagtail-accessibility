@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.utils.safestring import mark_safe
 
 from wagtail.blocks import (
     CharBlock,
@@ -25,7 +26,16 @@ class ImageBlock(StructBlock):
     image = ImageChooserBlock(required=True)
     caption = CharBlock(required=False)
     attribution = CharBlock(required=False)
-    alt_text = CharBlock(required=False)
+    alt_text = CharBlock(
+        required=False,
+        help_text=mark_safe(
+            'If this image is not purely decorative, '
+            'enter a text alternative to be displayed if images fail to load '
+            'or to be read by screen reader software. '
+            '<a href="https://www.a11yproject.com/posts/alt-text/" '
+            'target="_blank">Learn more about how to write alt text</a>'
+        )
+    )
 
     class Meta:
         icon = "image"
@@ -47,6 +57,14 @@ class HeadingBlock(StructBlock):
         ],
         blank=True,
         required=False,
+        help_text=mark_safe(
+            'Please ensure that you do not skip heading levels. '
+            'For example, the next heading after an H2 '
+            'should only be either an H3 or another H2. '
+            '<a href="https://www.a11yproject.com/posts/'
+            'how-to-accessible-heading-structure/" target="_blank">'
+            'Learn more about heading structure</a>'
+        )
     )
 
     class Meta:
@@ -78,7 +96,17 @@ class LinkBlock(StructBlock):
     text = CharBlock()
     page = PageChooserBlock(required=False)
     external_url = URLBlock(required=False, label="External URL")
-    aria_label = CharBlock(required=False, label="ARIA label")
+    aria_label = CharBlock(
+        required=False,
+        label="ARIA label",
+        help_text=mark_safe(
+            'If your link text is generic, like "Read more" or "Download", '
+            'enter something more descriptive to be read by screen readers '
+            'instead, like "Read about our commitment to accessibility". '
+            '<a href="https://a11y-101.com/development/aria-label" '
+            'target="_blank">Learn more about ARIA labels</a>'
+        )
+    )
 
     def clean(self, value):
         result = super().clean(value)
