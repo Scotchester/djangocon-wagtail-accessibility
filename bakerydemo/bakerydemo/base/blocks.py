@@ -3,11 +3,14 @@ from django.core.exceptions import ValidationError
 from wagtail.blocks import (
     CharBlock,
     ChoiceBlock,
+    PageChooserBlock,
     RichTextBlock,
     StreamBlock,
     StreamBlockValidationError,
     StructBlock,
+    StructValue,
     TextBlock,
+    URLBlock,
 )
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
@@ -64,6 +67,24 @@ class BlockQuote(StructBlock):
         template = "blocks/blockquote.html"
 
 
+class LinkStructValue(StructValue):
+    def url(self):
+        external_url = self.get("external_url")
+        page = self.get("page")
+        return external_url or page.url
+
+
+class LinkBlock(StructBlock):
+    text = CharBlock()
+    page = PageChooserBlock(required=False)
+    external_url = URLBlock(required=False, label="External URL")
+    aria_label = CharBlock(required=False, label="ARIA label")
+
+    class Meta:
+        value_class = LinkStructValue
+        template = "blocks/link_block.html"
+
+
 # StreamBlocks
 class BaseStreamBlock(StreamBlock):
     """
@@ -81,6 +102,7 @@ class BaseStreamBlock(StreamBlock):
         icon="media",
         template="blocks/embed_block.html",
     )
+    link_block = LinkBlock()
 
     def clean(self, value):
         result = super().clean(value)
