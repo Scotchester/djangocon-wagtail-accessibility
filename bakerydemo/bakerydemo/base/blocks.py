@@ -80,6 +80,27 @@ class LinkBlock(StructBlock):
     external_url = URLBlock(required=False, label="External URL")
     aria_label = CharBlock(required=False, label="ARIA label")
 
+    def clean(self, value):
+        result = super().clean(value)
+        generic_link_text = [
+            "click here",
+            "download",
+            "edit",
+            "go",
+            "learn more",
+            "read more",
+            "see more",
+        ]
+        if (
+            not result["aria_label"]
+            and result["text"].casefold() in generic_link_text
+        ):
+            raise ValidationError(
+                "Entered link text is very generic. "
+                "Add a more descriptive ARIA label for screen readers."
+            )
+        return result
+
     class Meta:
         value_class = LinkStructValue
         template = "blocks/link_block.html"
