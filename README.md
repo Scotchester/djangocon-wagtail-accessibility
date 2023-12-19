@@ -5,7 +5,7 @@ An online talk for DjangoCon US 2023 by Scott Cranfill
 
 ## Video
 
-_[link to be added once it's made public]_
+[Watch on YouTube](https://www.youtube.com/watch?v=qqQBbVIHkCA)
 
 
 ## Slides
