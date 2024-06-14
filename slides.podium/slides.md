@@ -6,7 +6,7 @@ class: title wagtail
 
 ???
 
-Hello, Djangonauts! My name is Scott Cranfill, my pronouns are he/him and this is my talk on Best Practices for Making a Wagtail Site Accessible.
+Hello, Djangonauts! My name is Scott Cranfill, my pronouns are he/him, and this is my talk on Best Practices for Making a Wagtail Site Accessible.
 
 Ah, but wait, that's not quite right. Let me see…
 
@@ -291,8 +291,6 @@ But the accessibility checker is configurable to show _more_ kinds of errors –
 
 I recommend that you, as a Wagtail developer, configure your site similarly so that as you personally browse the site, you can catch errors that may need to be addressed through code, rather than content. There is a handy recipe in the Wagtail docs for this, linked at the bottom of this slide.
 
-_[SHOW THE CODE?]_
-
 
 ---
 
@@ -427,7 +425,7 @@ You should probably still set up a custom image model when starting a new Wagtai
 
 # Current recommended approach to alt text
 
-- Create your own Streamfield image block with an alt field for maximum flexibility
+- Create your own StreamField image block with an alt field for maximum flexibility
 - Keep an eye out for "contextual alt text".dag1[]
 
 .footnotes[
